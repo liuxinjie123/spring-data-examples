@@ -17,6 +17,7 @@ package com.example.springdata.rest.headers;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -29,13 +30,15 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Address {
-
-	@GeneratedValue @Id//
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private final String street, zipCode, city, state;
+	private final String street;
+	private final String zipCode;
+	private final String city;
+	private final String state;
 
 	Address() {
-
 		this.street = null;
 		this.zipCode = null;
 		this.city = null;
