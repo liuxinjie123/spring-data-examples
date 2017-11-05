@@ -36,7 +36,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PersonRepositoryIntegrationTest {
-
 	@SpringBootApplication
 	@EnableMapRepositories
 	static class Config {}
@@ -45,20 +44,15 @@ public class PersonRepositoryIntegrationTest {
 
 	@Test
 	public void storesPerson() {
-
 		Person person = repository.save(new Person("Dave", "Matthews", 47));
-
 		assertThat(repository.findById(person.getId())).hasValue(person);
 	}
 
 	@Test
 	public void findsPersonByAge() {
-
 		Person dave = repository.save(new Person("Dave", "Matthews", 47));
 		Person oliver = repository.save(new Person("Oliver August", "Matthews", 7));
-
 		List<Person> result = repository.findByAgeGreaterThan(18);
-
 		Assertions.assertThat(result).contains(dave);
 		Assertions.assertThat(result).doesNotContain(oliver);
 	}
