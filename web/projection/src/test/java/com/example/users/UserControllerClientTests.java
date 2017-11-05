@@ -18,6 +18,7 @@ package com.example.users;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
+import com.example.Application;
 import com.example.users.UserController.UserPayload;
 
 import org.junit.Test;

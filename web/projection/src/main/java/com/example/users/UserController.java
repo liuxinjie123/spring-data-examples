@@ -37,7 +37,6 @@ import org.xmlbeam.annotation.XBRead;
  */
 @RestController
 class UserController {
-
 	private static String XML_PAYLOAD = "<firstname>Dave</firstname><lastname>Matthews</lastname>";
 
 	/**
@@ -48,30 +47,23 @@ class UserController {
 	 */
 	@PostMapping(value = "/")
 	HttpEntity<String> post(@RequestBody UserPayload user) {
-
 		return ResponseEntity
 				.ok(String.format("Received firstname: %s, lastname: %s", user.getFirstname(), user.getLastname()));
 	}
 
 	/**
 	 * Returns a simple JSON payload.
-	 * 
-	 * @return
 	 */
 	@GetMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	Map<String, Object> getJson() {
-
 		Map<String, Object> result = new HashMap<>();
 		result.put("firstname", "Dave");
 		result.put("lastname", "Matthews");
-
 		return result;
 	}
 
 	/**
 	 * Returns the payload of {@link #getJson()} wrapped into another element to simulate a change in the representation.
-	 * 
-	 * @return
 	 */
 	@GetMapping(path = "/changed", produces = MediaType.APPLICATION_JSON_VALUE)
 	Map<String, Object> getChangedJson() {
@@ -80,8 +72,6 @@ class UserController {
 
 	/**
 	 * Returns a simple XML payload.
-	 * 
-	 * @return
 	 */
 	@GetMapping(path = "/", produces = MediaType.APPLICATION_XML_VALUE)
 	String getXml() {
@@ -91,8 +81,6 @@ class UserController {
 	/**
 	 * Returns the payload of {@link #getXml()} wrapped into another XML element to simulate a change in the
 	 * representation structure.
-	 * 
-	 * @return
 	 */
 	@GetMapping(path = "/changed", produces = MediaType.APPLICATION_XML_VALUE)
 	String getChangedXml() {
@@ -101,12 +89,9 @@ class UserController {
 
 	/**
 	 * The projection interface using XPath and JSON Path expression to selectively pick elements from the payload.
-	 *
-	 * @author Oliver Gierke
 	 */
 	@ProjectedPayload
 	public interface UserPayload {
-
 		@XBRead("//firstname")
 		@JsonPath("$..firstname")
 		String getFirstname();
