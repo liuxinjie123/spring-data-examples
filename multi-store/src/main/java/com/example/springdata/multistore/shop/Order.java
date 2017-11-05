@@ -36,7 +36,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @RequiredArgsConstructor(onConstructor = @__(@PersistenceConstructor))
 @Document
 public class Order {
-
 	private final String id;
 	private final String customerId;
 	private final Date orderDate;
@@ -59,7 +58,6 @@ public class Order {
 	 * @return
 	 */
 	public Order addItem(LineItem item) {
-
 		this.items.add(item);
 		return this;
 	}

@@ -28,14 +28,12 @@ import redis.embedded.RedisServer;
  * @author Oliver Gierke
  */
 public class EmbeddedRedisServer extends ExternalResource {
-
 	private static final int DEFAULT_PORT = 6379;
 	private RedisServer server;
 	private int port = DEFAULT_PORT;
 	private boolean suppressExceptions = false;
 
 	public EmbeddedRedisServer() {
-
 	}
 
 	protected EmbeddedRedisServer(int port) {
@@ -57,9 +55,7 @@ public class EmbeddedRedisServer extends ExternalResource {
 	 */
 	@Override
 	protected void before() throws IOException {
-
 		try {
-
 			this.server = new RedisServer(this.port);
 			this.server.start();
 		} catch (Exception e) {
@@ -75,7 +71,6 @@ public class EmbeddedRedisServer extends ExternalResource {
 	 */
 	@Override
 	protected void after() {
-
 		try {
 			this.server.stop();
 		} catch (Exception e) {
