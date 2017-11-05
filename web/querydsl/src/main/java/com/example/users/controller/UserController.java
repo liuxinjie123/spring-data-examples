@@ -41,7 +41,6 @@ import com.querydsl.core.types.Predicate;
 @Controller
 @RequiredArgsConstructor
 class UserController {
-
 	private final UserRepository repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)

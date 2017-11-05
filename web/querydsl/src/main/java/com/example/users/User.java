@@ -31,21 +31,30 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
 @Data
 @Document
 public class User {
+	@Id
+	private String username;
+	private String firstname;
+	private String lastname;
+	private String email;
+	private String nationality;
+	@JsonIgnore
+	private String password;
 
-	private @Id String username;
-	private String firstname, lastname, email, nationality;
-	private @JsonIgnore String password;
-
-	private @JsonUnwrapped Address address;
+	@JsonUnwrapped
+	private Address address;
 	private Picture picture;
 
 	@Value
 	public static class Address {
-		String city, street, zip;
+		String city;
+		String street;
+		String zip;
 	}
 
 	@Value
 	public static class Picture {
-		String large, medium, small;
+		String large;
+		String medium;
+		String small;
 	}
 }

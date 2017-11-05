@@ -24,7 +24,6 @@ import com.example.users.form.UserForm;
 import com.example.users.service.UserManagement;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -64,7 +63,7 @@ public class UserController {
 	 * @return
 	 */
 	@ModelAttribute("users")
-	public Page<User> users(@PageableDefault(size = 5) Pageable pageable) {
+	public Page<User> users(@PageableDefault(size = 10) Pageable pageable) {
 		return userManagement.findAll(pageable);
 	}
 
@@ -81,7 +80,6 @@ public class UserController {
 	public Object register(UserForm userForm, BindingResult binding, Model model) {
 
 		userForm.validate(binding, userManagement);
-
 		if (binding.hasErrors()) {
 			return "users";
 		}

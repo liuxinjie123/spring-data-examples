@@ -23,7 +23,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.querydsl.core.types.dsl.StringPath;
 
 /**
- * Repository to manage {@link User}s. Also implements {@link QueryDslPredicateExecutor} to enable predicate filtering
+ * Repository to manage {@link User}s. Also implements {@link QuerydslPredicateExecutor} to enable predicate filtering
  * on Spring MVC controllers as well as {@link QuerydslBinderCustomizer} to tweak the way predicates are created for
  * properties.
  * 

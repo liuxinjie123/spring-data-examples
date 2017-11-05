@@ -42,19 +42,15 @@ import org.springframework.util.StringUtils;
  */
 @RequiredArgsConstructor
 public class UserInitializer {
-
 	private final UserRepository repository;
 
 	public void init() throws Exception {
-
 		List<User> users = readUsers(new ClassPathResource("randomuser.me.csv"));
-
 		repository.deleteAll();
 		repository.saveAll(users);
 	}
 
 	private static List<User> readUsers(Resource resource) throws Exception {
-
 		Scanner scanner = new Scanner(resource.getInputStream());
 		String line = scanner.nextLine();
 		scanner.close();
@@ -108,13 +104,10 @@ public class UserInitializer {
 		User user = null;
 
 		do {
-
 			user = reader.read();
-
 			if (user != null) {
 				users.add(user);
 			}
-
 		} while (user != null);
 
 		return users;
