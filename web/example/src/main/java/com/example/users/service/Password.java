@@ -35,7 +35,6 @@ import lombok.experimental.Delegate;
 @Getter(AccessLevel.PACKAGE)
 @Embeddable
 public class Password implements CharSequence {
-
 	private @Delegate final String password;
 	private @Getter transient boolean encrypted;
 

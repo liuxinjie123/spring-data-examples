@@ -15,6 +15,7 @@
  */
 package com.example;
 
+import com.example.users.controller.UserController;
 import com.example.users.service.Password;
 import com.example.users.form.UserForm;
 import com.example.users.service.UserManagement;

@@ -24,6 +24,7 @@ import com.example.users.form.UserForm;
 import com.example.users.service.UserManagement;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -51,8 +52,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/users")
-class UserController {
-
+public class UserController {
 	private final UserManagement userManagement;
 
 	/**
@@ -110,43 +110,4 @@ class UserController {
 		return "users";
 	}
 
-	/**
-	 * An interface to represent the form to be used
-	 *
-	 * @author Oliver Gierke
-	 */
-//	interface UserForm {
-//
-//		String getUsername();
-//
-//		String getPassword();
-//
-//		String getRepeatedPassword();
-//
-//		/**
-//		 * Validates the {@link UserForm}.
-//		 *
-//		 * @param errors
-//		 * @param userManagement
-//		 */
-//		default void validate(BindingResult errors, UserManagement userManagement) {
-//
-//			rejectIfEmptyOrWhitespace(errors, "username", "user.username.empty");
-//			rejectIfEmptyOrWhitespace(errors, "password", "user.password.empty");
-//			rejectIfEmptyOrWhitespace(errors, "repeatedPassword", "user.repeatedPassword.empty");
-//
-//			if (!getPassword().equals(getRepeatedPassword())) {
-//				errors.rejectValue("repeatedPassword", "user.password.no-match");
-//			}
-//
-//			try {
-//
-//				userManagement.findByUsername(new Username(getUsername())).ifPresent(
-//						user -> errors.rejectValue("username", "user.username.exists"));
-//
-//			} catch (IllegalArgumentException o_O) {
-//				errors.rejectValue("username", "user.username.invalidFormat");
-//			}
-//		}
-//	}
 }

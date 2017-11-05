@@ -15,19 +15,11 @@
  */
 package com.example.users.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+import javax.persistence.*;
 
 import com.example.users.service.Password;
 import com.example.users.service.Username;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 /**
  * A {@link User} domain object. The primary entity of this example. Basically a combination of a {@link Username} and
@@ -36,13 +28,14 @@ import lombok.RequiredArgsConstructor;
  * @author Oliver Gierke
  */
 @Entity
-@Getter
+@Data
 @RequiredArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @EqualsAndHashCode(of = "id")
 public class User {
-
-	private @GeneratedValue @Id Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private final Username username;
 	private final Password password;
 
@@ -57,7 +50,6 @@ public class User {
 	@PrePersist
 	@PreUpdate
 	void assertEncrypted() {
-
 		if (!password.isEncrypted()) {
 			throw new IllegalStateException("Tried to persist/load a user with a non-encrypted password!");
 		}

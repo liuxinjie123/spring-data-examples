@@ -20,7 +20,6 @@ public interface UserForm {
      * @param userManagement
      */
     default void validate(BindingResult errors, UserManagement userManagement) {
-
         rejectIfEmptyOrWhitespace(errors, "username", "user.username.empty");
         rejectIfEmptyOrWhitespace(errors, "password", "user.password.empty");
         rejectIfEmptyOrWhitespace(errors, "repeatedPassword", "user.repeatedPassword.empty");
