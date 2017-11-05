@@ -24,6 +24,5 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class CustomerDto {
-
 	private final String firstname;
 }

@@ -29,7 +29,6 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @RequiredArgsConstructor
 public class Customer {
-
 	private @GeneratedValue @Id Long id;
 	private final String firstname;
 	private final String lastname;
