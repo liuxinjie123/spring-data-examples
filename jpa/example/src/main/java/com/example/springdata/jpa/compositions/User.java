@@ -34,7 +34,8 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Setter
 public class User extends AbstractPersistable<Long> implements Contact, Employee {
 
-	@Column(unique = true) private String username;
+	@Column(unique = true)
+	private String username;
 
 	private String firstname;
 	private String lastname;
