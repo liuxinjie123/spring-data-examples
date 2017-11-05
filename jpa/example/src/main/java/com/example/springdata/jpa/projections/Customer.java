@@ -31,7 +31,8 @@ import lombok.RequiredArgsConstructor;
 public class Customer {
 
 	private @GeneratedValue @Id Long id;
-	private final String firstname, lastname;
+	private final String firstname;
+	private final String lastname;
 
 	protected Customer() {
 		this.firstname = null;
