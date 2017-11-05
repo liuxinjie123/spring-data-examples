@@ -31,9 +31,11 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Customer {
-
-	private @GeneratedValue @Id Long id;
-	private final String firstname, lastname;
+	@Id
+	@GeneratedValue
+	private Long id;
+	private final String firstname;
+	private final String lastname;
 	private final Gender gender;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)//
