@@ -35,8 +35,9 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class LineItem {
-
-	private @GeneratedValue @Id Long id;
+	@Id
+	@GeneratedValue
+	private Long id;
 	private final String description;
 	private final BigDecimal price;
 
