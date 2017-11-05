@@ -30,8 +30,8 @@ import javax.persistence.Entity;
 @ToString
 @AllArgsConstructor
 public class Customer extends AbstractEntity {
-
-	String firstname, lastname;
+	private String firstname;
+	private String lastname;
 
 	protected Customer() {
 		this.firstname = null;

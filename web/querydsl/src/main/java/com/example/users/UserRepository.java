@@ -39,8 +39,8 @@ public interface UserRepository
 	 */
 	@Override
 	default public void customize(QuerydslBindings bindings, QUser root) {
-
 		bindings.bind(String.class).first((StringPath path, String value) -> path.containsIgnoreCase(value));
-		bindings.excluding(root.password);
+//		bindings.excluding(root.password);
+		bindings.excluding();
 	}
 }

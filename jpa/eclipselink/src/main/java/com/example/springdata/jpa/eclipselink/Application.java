@@ -72,10 +72,8 @@ public class Application extends JpaBaseConfiguration {
 	}
 
 	public static void main(String[] args) {
-
 		CustomerRepository repository = SpringApplication.run(Application.class, args).getBean(CustomerRepository.class);
 		repository.save(new Customer("Richard", "Feynman"));
-
 		System.out.println(repository.findAll());
 	}
 }
