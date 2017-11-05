@@ -18,12 +18,7 @@ package com.example.springdata.rest.projections;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import lombok.Data;
 
@@ -33,18 +28,15 @@ import lombok.Data;
 @Entity(name = "SampleOrder")
 @Data
 public class Order {
-
-	@Id @GeneratedValue//
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)//
 	private List<LineItem> items = new ArrayList<>();
-
-	@ManyToOne//
+	@ManyToOne
 	private Customer customer;
 
 	public Order add(LineItem item) {
-
 		this.items.add(item);
 		return this;
 	}

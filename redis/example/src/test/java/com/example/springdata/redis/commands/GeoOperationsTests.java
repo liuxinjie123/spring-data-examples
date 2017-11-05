@@ -54,9 +54,7 @@ public class GeoOperationsTests {
 
 	@Before
 	public void before() {
-
 		geoOperations = operations.opsForGeo();
-
 		geoOperations.geoAdd("Sicily", new Point(13.361389, 38.115556), "Arigento");
 		geoOperations.geoAdd("Sicily", new Point(15.087269, 37.502669), "Catania");
 		geoOperations.geoAdd("Sicily", new Point(13.583333, 37.316667), "Palermo");
