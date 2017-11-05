@@ -17,6 +17,7 @@ package com.example.springdata.multistore.customer;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -31,10 +32,11 @@ import org.springframework.util.Assert;
 @Data
 @Entity
 public class Customer {
-
-	private @Id @GeneratedValue Long id;
-	private String firstname, lastname;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String firstname;
+	private String lastname;
 	private Address address;
 
 	/**
@@ -44,10 +46,8 @@ public class Customer {
 	 * @param lastname must not be {@literal null} or empty.
 	 */
 	public Customer(String firstname, String lastname) {
-
 		Assert.hasText(firstname, "Firstname must not be null or empty!");
 		Assert.hasText(lastname, "Lastname must not be null or empty!");
-
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}

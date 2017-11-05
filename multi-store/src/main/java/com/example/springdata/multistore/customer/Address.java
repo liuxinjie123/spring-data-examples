@@ -31,7 +31,6 @@ import org.springframework.data.geo.Point;
 @RequiredArgsConstructor
 @Embeddable
 public class Address {
-
 	private final Point location;
 	private String street;
 	private String zipCode;
