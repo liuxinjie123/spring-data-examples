@@ -44,12 +44,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @RequiredArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public class Customer {
+	@Id
+	@GeneratedValue
+	private Long id;
+	@Version
+	private Long version;
+	@JsonIgnore
+	@LastModifiedDate
+	private LocalDateTime lastModifiedDate;
 
-	private @GeneratedValue @Id Long id;
-	private @Version Long version;
-	private @JsonIgnore @LastModifiedDate LocalDateTime lastModifiedDate;
-
-	private final String firstname, lastname;
+	private final String firstname;
+	private final String lastname;
 	private final Gender gender;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)//
