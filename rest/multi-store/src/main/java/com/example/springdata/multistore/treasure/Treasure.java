@@ -31,8 +31,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @RequiredArgsConstructor
 public class Treasure {
-
-	private @Id String id;
+	@Id
+	private String id;
 	private final String name;
 	private final String description;
 }

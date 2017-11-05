@@ -32,8 +32,9 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Person {
-
-	private @Id @GeneratedValue Long id;
+	@Id
+	@GeneratedValue
+	private Long id;
 	private final String firstName;
 	private final String lastName;
 

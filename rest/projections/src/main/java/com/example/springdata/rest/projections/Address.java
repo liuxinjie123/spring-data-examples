@@ -29,13 +29,15 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Address {
-
-	@GeneratedValue @Id//
+	@Id
+	@GeneratedValue
 	private Long id;
-	private final String street, zipCode, city, state;
+	private final String street;
+	private final String zipCode;
+	private final String city;
+	private final String state;
 
 	Address() {
-
 		this.street = null;
 		this.zipCode = null;
 		this.city = null;
