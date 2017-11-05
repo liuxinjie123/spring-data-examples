@@ -32,8 +32,9 @@ import org.springframework.data.annotation.Id;
 @Getter
 @EqualsAndHashCode
 public class Person {
-
-	private final @Id UUID id = UUID.randomUUID();
-	private final String firstname, lastname;
+	@Id
+	private final UUID id = UUID.randomUUID();
+	private final String firstname;
+	private final String lastname;
 	private final int age;
 }
